@@ -22,7 +22,8 @@ class BuilderList extends StatelessWidget {
             );
           }
           return SizedBox(
-            height: size.height * 0.75,
+            //TODO: 0.75
+            height: size.height * 0.65,
             child: ListView.builder(
               itemCount: state.model.listYuGiOh?.length,
               itemBuilder: (BuildContext context, int index) {

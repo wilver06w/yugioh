@@ -1,7 +1,7 @@
 part of 'package:yugioh/app/screen/home/page.dart';
 
-class InputTitle extends StatelessWidget {
-  const InputTitle({
+class SearchArchetype extends StatelessWidget {
+  const SearchArchetype({
     super.key,
   });
 

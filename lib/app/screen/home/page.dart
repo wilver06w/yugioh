@@ -24,7 +24,7 @@ part 'package:yugioh/app/screen/home/_sections/bottom.dart';
 part 'package:yugioh/app/screen/home/_sections/header.dart';
 part 'package:yugioh/app/screen/home/_sections/builder_list.dart';
 part 'package:yugioh/app/screen/home/_sections/item_card.dart';
-part 'package:yugioh/app/screen/home/_sections/input_title.dart';
+part 'package:yugioh/app/screen/home/_sections/input_archetype.dart';
 
 class Page extends StatelessWidget {
   const Page({super.key});
@@ -44,7 +44,7 @@ class Page extends StatelessWidget {
         child: Scaffold(
           backgroundColor: YuGiOhColors.backgroundColor,
           bottomNavigationBar: BodyBottom(app: app),
-          body: const SafeArea(
+          body:  SafeArea(
             child: Body(),
           ),
         ),
