@@ -1,4 +1,4 @@
-# R5
+# YuGiOh
 - v1.0.0
 - Video probando su funcionalidad: (https://youtu.be/bYlbqaA3bG0)
 
