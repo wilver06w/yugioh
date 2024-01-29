@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:yugioh/app/utils/colors.dart';
 import 'package:yugioh/app/utils/spacing.dart';
 import 'package:yugioh/app/utils/text/text.dart';
 import 'package:yugioh/app/utils/text/typography.dart';
-import 'package:yugioh/app/utils/yugioh_ui.dart';
 
 part 'types/check_input.dart';
 part 'types/code_input.dart';
@@ -295,14 +293,6 @@ class _TextFieldTitle extends StatelessWidget {
               ),
             ),
           ),
-          if (errorText != null)
-            SvgPicture.asset(
-              YuGiOhUiValues.worldSvg,
-              colorFilter: const ColorFilter.mode(
-                YuGiOhColors.dangerColor,
-                BlendMode.srcIn,
-              ),
-            ),
         ],
       ),
     );

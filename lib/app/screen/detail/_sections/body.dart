@@ -50,7 +50,7 @@ class Body extends StatelessWidget {
                 ),
                 const Gap(YuGiOhSpacing.md),
                 YuGiOhText.body(
-                  label: YuGiOhUiValues.prices,
+                  label: YuGiOhUiValues.atribute,
                   textStyle: GoogleFonts.lato(),
                 ),
                 const Gap(YuGiOhSpacing.sm),

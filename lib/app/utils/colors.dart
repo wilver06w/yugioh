@@ -60,18 +60,9 @@ class YuGiOhColors {
   ///rybBlue
   static const Color rybBlue = Color(0xFF0036e7);
 
-  ///maximumRed
-  static const Color maximumRed = Color(0xFFdc2626);
-
   ///textColorSecondary
   static const Color textColorSecondary = Color(0xFF64748b);
 
   ///majorelleBlue
   static const Color majorelleBlue = Color(0xFF4f46e5);
-
-  ///catalinaBlue
-  static const Color catalinaBlue = Color(0xFF01236D);
-
-  ///textColor
-  static const Color textColor = Color(0xFF64748b);
 }
