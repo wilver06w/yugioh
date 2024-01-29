@@ -8,7 +8,7 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return Column(
+    return ListView(
       children: [
         const Gap(YuGiOhSpacing.md),
         Row(

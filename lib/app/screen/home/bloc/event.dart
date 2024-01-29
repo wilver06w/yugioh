@@ -34,3 +34,9 @@ class DeletedByArchetypeEvent extends HomeEvent {
 
   final Archetype archetype;
 }
+
+class SearchItemEvent extends HomeEvent {
+  const SearchItemEvent({required this.archetype});
+
+  final Archetype archetype;
+}

@@ -20,12 +20,12 @@ class YuGiOhUiValues {
   static const String coolStuffinc = 'Cool Stuffinc';
   static const String backBlueImg = 'assets/image/back_blue.jpg';
   static const String seeMore = 'Ver mas';
+  static const String searchArchetype = 'Buscar Arquetipos';
 
   static const String textFooter ="Sii Colombia · Bogotá - Av. Cll 40a #13 - 09 Edificio UGI";
 
 
   static const String worldSvg = 'assets/svg/world.svg';
-  static const String title = 'Titulo';
   static const String onRequired = 'Es requerido.';
   static const String description = 'Descripcion';
   static const String completed = 'Completado';

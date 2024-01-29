@@ -11,11 +11,14 @@ class Header extends StatelessWidget {
       padding: const EdgeInsets.only(left: YuGiOhSpacing.md),
       child: Column(
         children: [
-          const Column(
-            children: [
-              SearchArchetype(),
-              Gap(YuGiOhSpacing.md),
-            ],
+          const Padding(
+            padding: EdgeInsets.only(right: YuGiOhSpacing.md),
+            child: Column(
+              children: [
+                SearchArchetype(),
+                Gap(YuGiOhSpacing.md),
+              ],
+            ),
           ),
           SizedBox(
             height: 50,
@@ -23,9 +26,10 @@ class Header extends StatelessWidget {
               builder: (context, state) {
                 return ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: state.model.listArchetype.length,
+                  itemCount: state.model.getListArchetypeFilter.length,
                   itemBuilder: (context, index) {
-                    final itemArchetype = state.model.listArchetype[index];
+                    final itemArchetype =
+                        state.model.getListArchetypeFilter[index];
                     return Column(
                       children: [
                         Container(

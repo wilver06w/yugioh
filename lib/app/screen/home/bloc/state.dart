@@ -68,19 +68,19 @@ class Model extends Equatable {
     this.listYuGiOh,
     this.listArchetype = const [],
     this.listArchetypeSelected,
-    this.searchArchetype = '',
+    this.searchArchetype,
   });
 
   final List<YuGiOh>? listYuGiOh;
   final List<Archetype> listArchetype;
   final List<Archetype>? listArchetypeSelected;
-  final String searchArchetype;
+  final Archetype? searchArchetype;
 
   Model copyWith({
     List<YuGiOh>? listYuGiOh,
     List<Archetype>? listArchetype,
     List<Archetype>? listArchetypeSelected,
-    String? searchArchetype,
+    Archetype? searchArchetype,
   }) {
     return Model(
       listYuGiOh: listYuGiOh ?? this.listYuGiOh,
@@ -90,6 +90,18 @@ class Model extends Equatable {
       searchArchetype: searchArchetype ?? this.searchArchetype,
     );
   }
+
+  List<Archetype> get getListArchetypeFilter =>
+      (searchArchetype?.archetypeName ?? '').isEmpty
+          ? listArchetype
+          // : listArchetype;
+          : Functions.getListFilter(
+              listArchetype: listArchetype,
+              search: searchArchetype ??
+                  Archetype(
+                    archetypeName: '',
+                  ),
+            );
 
   @override
   List<Object?> get props {

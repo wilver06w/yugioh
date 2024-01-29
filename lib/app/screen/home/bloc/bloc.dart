@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:yugioh/app/models/archetype.dart';
 import 'package:yugioh/app/models/list_yugioh.dart';
 import 'package:yugioh/app/screen/home/repository.dart';
+import 'package:yugioh/app/utils/functions.dart';
 
 part 'event.dart';
 part 'state.dart';
@@ -16,6 +17,7 @@ class BlocHome extends Bloc<HomeEvent, HomeState> {
     on<LoadListYugiOhByArchetypeEvent>(_onLoadListYugiOhByArchetypeEvent);
     on<OnChangeSelectedArchetypeEvent>(_onOnChangeSelectedArchetypeEvent);
     on<DeletedByArchetypeEvent>(_onDeletedByArchetypeEvent);
+    on<SearchItemEvent>(_onSearchItemEvent);
   }
   final Repository repository;
 
@@ -111,6 +113,30 @@ class BlocHome extends Bloc<HomeEvent, HomeState> {
           state.model.copyWith(
             listYuGiOh: listYuGiOhActualy,
             listArchetypeSelected: listArchetypeActualy,
+          ),
+        ),
+      );
+    } catch (error) {
+      emit(
+        ErrorDeleteByArchetypeState(
+          model: state.model,
+          message: error.toString(),
+        ),
+      );
+    }
+  }
+
+  Future<void> _onSearchItemEvent(
+    SearchItemEvent event,
+    Emitter<HomeState> emit,
+  ) async {
+    try {
+      emit(LoadingDeleteByArchetypeState(state.model));
+
+      emit(
+        LoadedDeleteByArchetypeState(
+          state.model.copyWith(
+            searchArchetype: event.archetype,
           ),
         ),
       );

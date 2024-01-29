@@ -9,36 +9,25 @@ class SearchArchetype extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<BlocHome, HomeState>(
       builder: (context, state) {
-        final controllers = TextEditingController(
-          text: state.model.searchArchetype,
-        );
-
         return YuGiOhTextField(
-          controller: controllers
-            ..selection = TextSelection.fromPosition(
-              TextPosition(
-                offset: controllers.text.length,
-              ),
-            ),
-          hintText: YuGiOhUiValues.title,
+          controller: null,
+          hintText: YuGiOhUiValues.searchArchetype,
           fillColor: Colors.white,
           filled: true,
           validator: (value) {
             if ((value ?? '').isEmpty) {
-              return '${YuGiOhUiValues.title} ${YuGiOhUiValues.onRequired}';
+              return '${YuGiOhUiValues.searchArchetype} ${YuGiOhUiValues.onRequired}';
             }
             return null;
           },
-          textInputFormatters: [
-            FilteringTextInputFormatter.allow(RegExp("[a-zA-Z ]")),
-          ],
           onChanged: (value) {
-            //TODO: revisar
-            // context.read<BlocTask>().add(
-            //       ChangeTitleEvent(
-            //         title: value,
-            //       ),
-            //     );
+            context.read<BlocHome>().add(
+                  SearchItemEvent(
+                    archetype: Archetype(
+                      archetypeName: value,
+                    ),
+                  ),
+                );
           },
         );
       },

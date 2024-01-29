@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:oktoast/oktoast.dart';
+import 'package:yugioh/app/models/archetype.dart';
 import 'package:yugioh/app/models/list_yugioh.dart';
 import 'package:yugioh/app/screen/home/bloc/bloc.dart';
 import 'package:yugioh/app/screen/home/repository.dart';
@@ -21,10 +21,10 @@ import 'package:yugioh/app/widget/checkbox.dart';
 
 part 'package:yugioh/app/screen/home/_sections/body.dart';
 part 'package:yugioh/app/screen/home/_sections/bottom.dart';
-part 'package:yugioh/app/screen/home/_sections/header.dart';
 part 'package:yugioh/app/screen/home/_sections/builder_list.dart';
-part 'package:yugioh/app/screen/home/_sections/item_card.dart';
+part 'package:yugioh/app/screen/home/_sections/header.dart';
 part 'package:yugioh/app/screen/home/_sections/input_archetype.dart';
+part 'package:yugioh/app/screen/home/_sections/item_card.dart';
 
 class Page extends StatelessWidget {
   const Page({super.key});
@@ -44,7 +44,7 @@ class Page extends StatelessWidget {
         child: Scaffold(
           backgroundColor: YuGiOhColors.backgroundColor,
           bottomNavigationBar: BodyBottom(app: app),
-          body:  SafeArea(
+          body: const SafeArea(
             child: Body(),
           ),
         ),
