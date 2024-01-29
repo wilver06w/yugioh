@@ -21,13 +21,26 @@ class Body extends StatelessWidget {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Center(
-                  child: Hero(
-                    tag: item.cardImages?[0].imageUrlCropped ?? '',
-                    child: Image.network(
-                      item.cardImages?[0].imageUrl ?? '',
-                      height: size.height * 0.5,
-                      width: size.width * 0.6,
+                InkWell(
+                  onTap: () {
+                    FullscreenImageViewer.open(
+                      context: context,
+                      child: Hero(
+                        tag: item.cardImages?[0].imageUrlCropped ?? '',
+                        child: Image.network(
+                          item.cardImages?[0].imageUrl ?? '',
+                        ),
+                      ),
+                    );
+                  },
+                  child: Center(
+                    child: Hero(
+                      tag: item.cardImages?[0].imageUrlCropped ?? '',
+                      child: Image.network(
+                        item.cardImages?[0].imageUrl ?? '',
+                        height: size.height * 0.5,
+                        width: size.width * 0.6,
+                      ),
                     ),
                   ),
                 ),

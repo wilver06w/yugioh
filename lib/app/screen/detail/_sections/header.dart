@@ -20,15 +20,17 @@ class Header extends StatelessWidget {
             color: Colors.black,
           ),
         ),
-        BlocBuilder<BlocDetail, DetailState>(
-          builder: (context, state) {
-            return YuGiOhText.fontSizeCustom(
-              label: state.model.itemYugiOh.name,
-              fontSize: 22,
-              textStyle: GoogleFonts.lato(),
-              textOverflow: TextOverflow.ellipsis,
-            );
-          },
+        Flexible(
+          child: BlocBuilder<BlocDetail, DetailState>(
+            builder: (context, state) {
+              return YuGiOhText.fontSizeCustom(
+                label: state.model.itemYugiOh.name,
+                fontSize: 22,
+                textStyle: GoogleFonts.lato(),
+                textOverflow: TextOverflow.ellipsis,
+              );
+            },
+          ),
         ),
         const SizedBox.shrink(),
       ],
