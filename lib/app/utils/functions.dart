@@ -1,4 +1,5 @@
 import 'package:yugioh/app/models/archetype.dart';
+import 'package:yugioh/app/models/list_yugioh.dart';
 import 'package:yugioh/app/utils/yugioh_ui.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -26,6 +27,20 @@ class Functions {
         )
         .toList();
     return listFilter;
+  }
+
+  static List<YuGiOh> getListWithOutBan({
+    required List<YuGiOh> listYuGiOhActually,
+    required List<int> listYuGiOhBan,
+  }) {
+    List<YuGiOh> listYuGi = [];
+
+    for (YuGiOh elementItem in listYuGiOhActually) {
+      if (!listYuGiOhBan.contains(elementItem.id)) {
+        listYuGi.add(elementItem);
+      }
+    }
+    return listYuGi;
   }
 
   static List<String> moths = [

@@ -11,21 +11,12 @@ class Body extends StatelessWidget {
     return ListView(
       children: [
         const Gap(YuGiOhSpacing.md),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const SizedBox.shrink(),
-            Center(
-              child: YuGiOhText.title(
-                label: YuGiOhUiValues.archetypes.toUpperCase(),
-                color: Colors.black,
-                textStyle: GoogleFonts.lato(),
-              ),
-            ),
-            const Icon(
-              Icons.search,
-            ),
-          ],
+        Center(
+          child: YuGiOhText.title(
+            label: YuGiOhUiValues.archetypes.toUpperCase(),
+            color: Colors.black,
+            textStyle: GoogleFonts.lato(),
+          ),
         ),
         const Gap(YuGiOhSpacing.md),
         const Header(),

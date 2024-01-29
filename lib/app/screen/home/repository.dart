@@ -10,6 +10,7 @@ class Repository {
 
   final listYuGiOh = '/api/v7/cardinfo.php';
   final archetypes = '/api/v7/archetypes.php';
+  final banList = '/api/v7/cardinfo.php';
 
   Future<List<Archetype>> getArchetypes() async {
     final response = await yuGiOhHttpClient.msDio.get(
@@ -36,5 +37,20 @@ class Repository {
     final list = rawListData.map((p) => YuGiOh.fromJson(p)).toList();
 
     return list;
+  }
+
+  Future<List<int>> getListBan() async {
+    final response = await yuGiOhHttpClient.msDio.get(
+      banList,
+      queryParameters: {
+        'banlist': 'tcg',
+      },
+    );
+
+    final List<dynamic> rawListData = response.data['data'] as List<dynamic>;
+
+    final listIds = rawListData.map((p) => (p["id"] ?? 0) as int).toList();
+
+    return listIds;
   }
 }

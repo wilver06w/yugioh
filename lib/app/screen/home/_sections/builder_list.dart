@@ -14,7 +14,7 @@ class BuilderList extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: YuGiOhSpacing.md),
       child: BlocBuilder<BlocHome, HomeState>(
         builder: (context, state) {
-          if ((state.model.listYuGiOh ?? []).isEmpty) {
+          if (state.model.getListYuGiOhWithoutBan.isEmpty) {
             return Center(
               child: YuGiOhText.body(
                 label: YuGiOhUiValues.selectArchetype,
@@ -25,9 +25,9 @@ class BuilderList extends StatelessWidget {
             //TODO: 0.75
             height: size.height * 0.65,
             child: ListView.builder(
-              itemCount: state.model.listYuGiOh?.length,
+              itemCount: state.model.getListYuGiOhWithoutBan.length,
               itemBuilder: (BuildContext context, int index) {
-                final itemYuGiOh = state.model.listYuGiOh?[index];
+                final itemYuGiOh = state.model.getListYuGiOhWithoutBan[index];
                 return ItemCard(
                   itemYuGiOh: itemYuGiOh,
                   size: size,

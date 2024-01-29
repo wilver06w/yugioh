@@ -40,3 +40,5 @@ class SearchItemEvent extends HomeEvent {
 
   final Archetype archetype;
 }
+
+class LoadBanItemsEvent extends HomeEvent {}

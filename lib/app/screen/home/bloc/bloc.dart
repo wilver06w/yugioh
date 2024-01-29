@@ -18,6 +18,7 @@ class BlocHome extends Bloc<HomeEvent, HomeState> {
     on<OnChangeSelectedArchetypeEvent>(_onOnChangeSelectedArchetypeEvent);
     on<DeletedByArchetypeEvent>(_onDeletedByArchetypeEvent);
     on<SearchItemEvent>(_onSearchItemEvent);
+    on<LoadBanItemsEvent>(_onLoadBanItemsEvent);
   }
   final Repository repository;
 
@@ -72,6 +73,32 @@ class BlocHome extends Bloc<HomeEvent, HomeState> {
     } catch (error) {
       emit(
         ErrorListYuGiOhByArchetypeState(
+          model: state.model,
+          message: error.toString(),
+        ),
+      );
+    }
+  }
+
+  Future<void> _onLoadBanItemsEvent(
+    LoadBanItemsEvent event,
+    Emitter<HomeState> emit,
+  ) async {
+    try {
+      emit(LoadingListYuGiOhBannedState(state.model));
+
+      final listYuGiOhBanned = await repository.getListBan();
+
+      emit(
+        LoadedListYuGiOhBannedState(
+          state.model.copyWith(
+            listYuGiOhBanned: listYuGiOhBanned,
+          ),
+        ),
+      );
+    } catch (error) {
+      emit(
+        ErrorListYuGiOhBannedState(
           model: state.model,
           message: error.toString(),
         ),

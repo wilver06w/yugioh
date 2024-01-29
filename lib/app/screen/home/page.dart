@@ -38,7 +38,9 @@ class Page extends StatelessWidget {
         repository: Repository(
           yuGiOhHttpClient: yuGiOhHttpClient,
         ),
-      )..add(LoadListArchetypeEvent()),
+      )
+        ..add(LoadListArchetypeEvent())
+        ..add(LoadBanItemsEvent()),
       child: BlocListener<BlocHome, HomeState>(
         listener: _listener,
         child: Scaffold(
